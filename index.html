@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,33 +8,60 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="games">
+    <div class="container_top">
         <p class="title">Rock Paper Scissors</p>
         <label class="text_number_games" for="number_games">How many rounds of Rock Paper Scissors game would you like to play?</label>
         <input id="number_games" type="number">
         <button class="start_play" type="button">Start Play</button>
     </div>
-    <div class="container">
+    <div class="container_bottom">
         <p class="title">Rock Paper Scissors</p>
-        <div class="container_left">
-            <p class="text_title_player"></p>
-            <div class="options">
-                <button id="rock" type="button">Rock</button>
+        <div class="container_inside">
+            <div class="container_left">
+                <p class="text_title_players">PLAYER</p>
+                <div class="options_btnplay">
+                    <div class="options">
+                        <button id="rock" type="button">Rock</button>
+                        <img class="img_rock" src="./images/rock.jpg" alt="">
+                        <button id="paper" type="button">Rock</button>
+                        <img class="img_paper" src="./images/paper.jpg" alt="">
+                        <button id="scissors" type="button">Rock</button>
+                        <img class="img_scissors" src="./images/scissors.jpg" alt="">
+                    </div>
+                    <button class="play" type="button">PLAY</button>
+                </div>
+                <button class="restart" type="button">RESTART</button>
+            </div>
+            <div class="container_middle">
+                <p class="text_score">SCORE</p>
+                <div class="container_results">
+                    <div class="container_player">
+                        <p class="text_results">PLAYER</p>
+                        <div class="score_player">0</div>
+                        <img class="img_player" src="./images/paper.jpg" alt="">
+                    </div>
+                    <div class="container_vs">
+                        <p class="text_results">Vs.</p>
+                        <div class="score_vs">-</div>
+                        <p class="text_vs">Vs.</p>
+                    </div>
+                    <div class="container_pc">
+                        <p class="text_results">PC</p>
+                        <div class="score_pc">0</div>
+                        <img class="img_pc" src="./images/rock.jpg" alt="">
+                    </div>
+                </div>
+                <div class="round_winner">The winner of the round was: Player</div>
+                <button class="next_round" type="button">Next Round</button>
+                <div class="game_winner">The winner of the game is: PLAYER</div>
+            </div>
+            <div class="container_right">
+                <p class="text_title_players">PC</p>
                 <img class="img_rock" src="./images/rock.jpg" alt="">
-                <button id="paper" type="button">Rock</button>
                 <img class="img_paper" src="./images/paper.jpg" alt="">
-                <button id="scissors" type="button">Rock</button>
                 <img class="img_scissors" src="./images/scissors.jpg" alt="">
             </div>
         </div>
-        <div class="container_middle">
-            <p class="text_score">SCORE</p>
-            <p class="text_vs">Player Vs. PC</p>
-            <div class="scores"></div>
-        </div>
-
-
-
     </div>
     <script src="./main.js"></script>
 </body>
