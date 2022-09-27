@@ -10,6 +10,7 @@ body{
 }
 .container_top{
     border: solid 3px;
+    background-color:lemonchiffon;
     margin: 2% auto 0 auto;
     width: 75%;
     height: 20%;
@@ -19,11 +20,30 @@ body{
 }
 .title{
     font-size: 30px;
-    font-weight: 600;
-    margin-top: 0.5%;
+    font-weight: 700;
+    margin-top: 1%;
 }
 .text_number_games{
-    margin-top: 1%;
+    margin-top: 2%;
+}
+.btn_input_number_games{
+    display: flex;
+}
+#number_games{
+    background-color: lightgreen;
+    border: solid 1px black;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Kumbh Sans', sans-serif;
+    margin-top: 2%;
+    width: 10%;
+    height: 30px;
+    text-align: center;
+}
+.start_play{
+    /* margin: 2%; */
+    
+    
 }
 
 
@@ -31,10 +51,14 @@ body{
 
 
 .container_bottom{
+    background-color:lemonchiffon;
     border: solid 3px;
     margin: 0 auto;
     width: 75%;
     height: 77%;
+}
+footer{
+    height: 3%;
 }
 
 
