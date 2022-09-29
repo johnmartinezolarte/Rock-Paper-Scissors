@@ -12,7 +12,7 @@
         <p class="title">Rock Paper Scissors</p>
         <label class="text_number_games" for="number_games">How many rounds of Rock Paper Scissors game would you like to play?</label>
         <div class="btn_input_number_games">
-            <input id="number_games" type="number">
+            <input class="number_games" type="number">
             <button class="start_play" type="button">Start Play</button>
         </div>
     </div>
@@ -22,12 +22,12 @@
             <div class="container_left">
                 <p class="text_title_player">PLAYER</p>
                 <div class="options_btnplay">
-                    <div class="options">
+                    <p class="choose">Choose an option:</p>
+                    <div class="options_player">
                         <div class="rock"></div>
                         <div class="paper"></div>
                         <div class="scissors"></div>
                     </div>
-                    <button class="play" type="button">PLAY</button>
                 </div>
                 <button class="restart" type="button">RESTART</button>
             </div>
@@ -37,7 +37,7 @@
                     <div class="container_player">
                         <p class="text_result_player">PLAYER</p>
                         <div class="score_player">0</div>
-                        <img class="img_player" src="./images/paper.jpg" alt="">
+                        <img class="img_player" alt="">
                     </div>
                     <div class="container_vs">
                         <p class="text_result_vs">Vs.</p>
@@ -47,10 +47,10 @@
                     <div class="container_pc">
                         <p class="text_result_pc">PC</p>
                         <div class="score_pc">0</div>
-                        <img class="img_pc" src="./images/rock.jpg" alt="">
+                        <img class="img_pc" alt="">
                     </div>
                 </div>
-                <div class="round_winner">The winner of the round was: Player</div>
+                <div class="round_winner"></div>
                 <button class="next_round" type="button">Next Round</button>
                 <div class="game_winner">The winner of the game is: PLAYER</div>
             </div>
