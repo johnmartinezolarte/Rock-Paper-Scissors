@@ -1,157 +1,56 @@
-const tag=parameter=>document.querySelector(parameter);
-const displayContainerTop=tag('.container_top');
-const displayContainerBottom=tag('.container_bottom');
-const numberGames=tag('.number_games');
-const startPlay=tag('.start_play');
-const displayOptionsChoose=tag('.title_choose_options');
-const rockPlayer=tag('.rock');
-const paperPlayer=tag('.paper');
-const scissorsPlayer=tag('.scissors');
-const restart=tag('.restart');
-const scorePlayer=tag('.score_player');
-const scorePc=tag('.score_pc');
-const displayPlayer=tag('.img_player');
-const displayPc=tag('.img_pc');
-const displayRoundWinner=tag('.round_winner');
-const nextRound=tag('.next_round');
-const displayGameWinner=tag('.game_winner');
-const displayOptionsPc=tag('.container_right');
-const textVs=tag('.text_vs');
+let rounds, player, pc, sumPlayer=0, sumPc=0, valid=true;
 
-let sumPlayer=0, sumPc=0, sumtie=0, resultPc, rounds;
+do{
+    rounds=+prompt('How many rounds of Rock Paper Scissors game would you like to play?');
+    if(rounds>0) valid=false;
+}while(valid);
 
-startPlay.addEventListener('click', ()=>{
-    (numberGames.value>0)?(displayContainerTop.style.display='none',displayContainerBottom.style.visibility='visible',rounds= +numberGames.value):alert('Enter a value greater than 0.')
-});
-
-rockPlayer.addEventListener('click',rock);
-paperPlayer.addEventListener('click',paper);
-scissorsPlayer.addEventListener('click',scissors);
-
-function rock(){
-    displayOptionsChoose.style.visibility='hidden';
-    displayOptionsPc.style.visibility='hidden';
-    displayPc.style.visibility='visible';
-    displayPlayer.style.visibility='visible';
-    displayPlayer.src="./images/rock.jpg";
-    textVs.style.visibility='visible';
-    resultPc=Math.floor(Math.random()*3+1);
-    if(resultPc===3){
-        sumPlayer++;
-        displayPc.src="./images/scissors.jpg";
-        displayRoundWinner.innerHTML='The winner of the round was: Player';
-        scorePlayer.innerHTML=sumPlayer;
-    }else if(resultPc===2){
-        sumPc++;
-        displayPc.src="./images/paper.jpg";
-        displayRoundWinner.innerHTML='The winner of the round was: PC';
-        scorePc.innerHTML=sumPc;
-    }else{
-        displayPc.src="./images/rock.jpg";
-        displayRoundWinner.innerHTML='The winner of the round was: Tie';
-        sumtie++
-    }
-    if(sumPlayer+sumPc+sumtie===rounds){
-        displayRoundWinner.style.visibility='hidden';
-        displayGameWinner.style.visibility='visible';
-        if(sumPlayer>sumPc){
-            displayGameWinner.innerHTML='The winner of the game is: PLAYER';
-        }else if(sumPc>sumPlayer){
-            displayGameWinner.innerHTML='The winner of the game is: PC';
+for(let i=0;i<rounds;i++){
+    do{
+        player=+prompt(`Rock Paper Scissors game.\nRound #${i+1}\nChoose an option:\n1: Rock\n2: Paper\n3:Scissors`);
+        if(player===1 || player===2 || player===3){
+            valid=false;
         }else{
-            displayGameWinner.innerHTML='The winner of the game is: TIE';
+            valid=true;
         }
+    }while(valid);
+
+    pc=Math.floor(Math.random()*3+1);
+    if(pc===1){
+        alert(`Round #${i+1}\nPC chose Rock`);
+    }else if(pc===2){
+        alert(`Round #${i+1}\nPC chose Paper`);
     }else{
-        nextRound.style.visibility='visible';
+        alert(`Round #${i+1}\nPC chose Scissors`);
+    }
+
+    if(player===1 && pc===3){
+        alert(`The winner of the round #${i+1} was: Player`);
+        sumPlayer++;
+    }else if(player===1 && pc===2){
+        alert(`The winner of the round #${i+1} was: PC`);
+        sumPc++;
+    }else if(player===2 && pc===1){
+        alert(`The winner of the round #${i+1} was: Player`);
+        sumPlayer++;
+    }else if(player===2 && pc===3){
+        alert(`The winner of the round #${i+1} was: PC`);
+        sumPc++;
+    }else if(player===3 && pc===2){
+        alert(`The winner of the round #${i+1} was: Player`);
+        sumPlayer++;
+    }else if(player===3 && pc===1){
+        alert(`The winner of the round #${i+1} was: PC`);
+        sumPc++;
+    }else{
+        alert(`The winner of the round #${i+1} was: Tie`);
     }
 }
 
-function paper(){
-    displayOptionsChoose.style.visibility='hidden';
-    displayOptionsPc.style.visibility='hidden';
-    displayPc.style.visibility='visible';
-    displayPlayer.style.visibility='visible';
-    displayPlayer.src="./images/paper.jpg";
-    textVs.style.visibility='visible';
-    resultPc=Math.floor(Math.random()*3+1);
-    if(resultPc===1){
-        sumPlayer++;
-        displayPc.src="./images/rock.jpg";
-        displayRoundWinner.innerHTML='The winner of the round was: Player';
-        scorePlayer.innerHTML=sumPlayer;
-    }else if(resultPc===3){
-        sumPc++;
-        displayPc.src="./images/scissors.jpg";
-        displayRoundWinner.innerHTML='The winner of the round was: PC';
-        scorePc.innerHTML=sumPc;
-    }else{
-        displayPc.src="./images/paper.jpg";
-        displayRoundWinner.innerHTML='The winner of the round was: Tie';
-        sumtie++
-    }
-    if(sumPlayer+sumPc+sumtie===rounds){
-        displayRoundWinner.style.visibility='hidden';
-        displayGameWinner.style.visibility='visible';
-        if(sumPlayer>sumPc){
-            displayGameWinner.innerHTML='The winner of the game is: PLAYER';
-        }else if(sumPc>sumPlayer){
-            displayGameWinner.innerHTML='The winner of the game is: PC';
-        }else{
-            displayGameWinner.innerHTML='The winner of the game is: TIE';
-        }
-    }else{
-        nextRound.style.visibility='visible';
-    }
+if(sumPlayer>sumPc){
+    alert('The winner of the game is: PLAYER');
+}else if(sumPc>sumPlayer){
+    alert('The winner of the game is: PC');
+}else{
+    alert('The winner of the game is: TIE');
 }
-
-function scissors(){
-    displayOptionsChoose.style.visibility='hidden';
-    displayOptionsPc.style.visibility='hidden';
-    displayPc.style.visibility='visible';
-    displayPlayer.style.visibility='visible';
-    displayPlayer.src="./images/scissors.jpg";
-    textVs.style.visibility='visible';
-    resultPc=Math.floor(Math.random()*3+1);
-    if(resultPc===2){
-        sumPlayer++;
-        displayPc.src="./images/paper.jpg";
-        displayRoundWinner.innerHTML='The winner of the round was: Player';
-        scorePlayer.innerHTML=sumPlayer;
-    }else if(resultPc===1){
-        sumPc++;
-        displayPc.src="./images/rock.jpg";
-        displayRoundWinner.innerHTML='The winner of the round was: PC';
-        scorePc.innerHTML=sumPc;
-    }else{
-        displayPc.src="./images/scissors.jpg";
-        displayRoundWinner.innerHTML='The winner of the round was: Tie';
-        sumtie++
-    }
-    if(sumPlayer+sumPc+sumtie===rounds){
-        displayRoundWinner.style.visibility='hidden';
-        displayGameWinner.style.visibility='visible';
-        if(sumPlayer>sumPc){
-            displayGameWinner.innerHTML='The winner of the game is: PLAYER';
-        }else if(sumPc>sumPlayer){
-            displayGameWinner.innerHTML='The winner of the game is: PC';
-        }else{
-            displayGameWinner.innerHTML='The winner of the game is: TIE';
-        }
-    }else{
-        nextRound.style.visibility='visible';
-    }
-}
-
-nextRound.addEventListener('click', ()=>{
-    nextRound.style.visibility='hidden';
-    displayRoundWinner.innerHTML='';
-    displayOptionsChoose.style.visibility='visible';
-    displayOptionsPc.style.visibility='visible';
-    displayPlayer.style.visibility='hidden';
-    displayPc.style.visibility='hidden';
-    textVs.style.visibility='hidden';
-})
-
-restart.addEventListener('click', ()=>{
-    location.reload();
-})
