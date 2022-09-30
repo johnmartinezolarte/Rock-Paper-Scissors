@@ -59,15 +59,7 @@ function rock(){
         sumtie++
     }
     if(sumPlayer+sumPc+sumtie===rounds){
-        displayRoundWinner.style.visibility='hidden';
-        displayGameWinner.style.visibility='visible';
-        if(sumPlayer>sumPc){
-            displayGameWinner.innerHTML='The winner of the game is: PLAYER';
-        }else if(sumPc>sumPlayer){
-            displayGameWinner.innerHTML='The winner of the game is: PC';
-        }else{
-            displayGameWinner.innerHTML='The winner of the game is: TIE';
-        }
+        setTimeout(gameWinner,3000,displayGameWinner);
     }else{
         nextRound.style.visibility='visible';
     }
@@ -97,15 +89,7 @@ function paper(){
         sumtie++
     }
     if(sumPlayer+sumPc+sumtie===rounds){
-        displayRoundWinner.style.visibility='hidden';
-        displayGameWinner.style.visibility='visible';
-        if(sumPlayer>sumPc){
-            displayGameWinner.innerHTML='The winner of the game is: PLAYER';
-        }else if(sumPc>sumPlayer){
-            displayGameWinner.innerHTML='The winner of the game is: PC';
-        }else{
-            displayGameWinner.innerHTML='The winner of the game is: TIE';
-        }
+        setTimeout(gameWinner,3000,displayGameWinner);
     }else{
         nextRound.style.visibility='visible';
     }
@@ -135,15 +119,7 @@ function scissors(){
         sumtie++
     }
     if(sumPlayer+sumPc+sumtie===rounds){
-        displayRoundWinner.style.visibility='hidden';
-        displayGameWinner.style.visibility='visible';
-        if(sumPlayer>sumPc){
-            displayGameWinner.innerHTML='The winner of the game is: PLAYER';
-        }else if(sumPc>sumPlayer){
-            displayGameWinner.innerHTML='The winner of the game is: PC';
-        }else{
-            displayGameWinner.innerHTML='The winner of the game is: TIE';
-        }
+        setTimeout(gameWinner,3000,displayGameWinner);
     }else{
         nextRound.style.visibility='visible';
     }
@@ -158,6 +134,18 @@ nextRound.addEventListener('click', ()=>{
     displayPc.style.visibility='hidden';
     textVs.style.visibility='hidden';
 })
+
+function gameWinner(display){
+    displayRoundWinner.style.visibility='hidden';
+    display.style.visibility='visible';
+    if(sumPlayer>sumPc){
+        display.innerHTML='The winner of the game is: PLAYER';
+    }else if(sumPc>sumPlayer){
+        display.innerHTML='The winner of the game is: PC';
+    }else{
+        display.innerHTML='The winner of the game is: TIE';
+    }
+}
 
 restart.addEventListener('click', ()=>{
     location.reload();
