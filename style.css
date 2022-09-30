@@ -331,5 +331,10 @@ body{
     width: 110px;
     height: 110px;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} 
 .attribution { font-size: 14px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }

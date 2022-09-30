@@ -24,6 +24,13 @@ startPlay.addEventListener('click', ()=>{
     (numberGames.value>0)?(displayContainerTop.style.display='none',displayContainerBottom.style.visibility='visible',rounds= +numberGames.value):alert('Enter a value greater than 0.')
 });
 
+numberGames.addEventListener("keyup", function(event){
+    event.preventDefault();
+    if(event.keyCode === 13){
+        startPlay.click();
+    }
+});
+
 rockPlayer.addEventListener('click',rock);
 paperPlayer.addEventListener('click',paper);
 scissorsPlayer.addEventListener('click',scissors);
