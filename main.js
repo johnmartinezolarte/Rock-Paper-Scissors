@@ -3,8 +3,7 @@ const displayContainerTop=tag('.container_top');
 const displayContainerBottom=tag('.container_bottom');
 const numberGames=tag('.number_games');
 const startPlay=tag('.start_play');
-const displayOptionsBtnPlayer=tag('.options_btnplay');
-const displayOptionsPlayer=tag('.options_player');
+const displayOptionsChoose=tag('.options_choose');
 const rock=tag('.rock');
 const paper=tag('.paper');
 const scissors=tag('.scissors');
@@ -18,18 +17,25 @@ const nextRound=tag('.next_round');
 const displayGameWinner=tag('.game_winner');
 const displayOptionsPc=tag('.options_pc');
 
-let sumPlayer=0, sumPc=0, resultPlayer, resultPc;
+let sumPlayer=0, sumPc=0, resultPc, sumempate=0, contador=0;
 
 startPlay.addEventListener('click', ()=>{
     if(numberGames.value>0){
         displayContainerTop.style.display='none';
         displayContainerBottom.style.visibility='visible';
+
+        while(contador!=numberGames.value){
+            contador++
+            console.log(contador)
+
+        }
+
+
         
-        for(let i=0;i<numberGames.value;i++){
-
-
+        
+        
             rock.addEventListener('click', ()=>{
-                displayOptionsPlayer.style.visibility='hidden';
+                displayOptionsChoose.style.visibility='hidden';
                 displayOptionsPc.style.visibility='hidden';
                 displayPc.style.visibility='visible';
                 displayPlayer.style.visibility='visible';
@@ -49,24 +55,27 @@ startPlay.addEventListener('click', ()=>{
                 }else{
                     displayPc.src="./images/rock.jpg";
                     displayRoundWinner.innerHTML='The winner of the round was: Tie'
+                    sumempate++
                 }
+                
+
 
 
         
                 nextRound.addEventListener('click', ()=>{
                     nextRound.style.visibility='hidden';
                     displayRoundWinner.innerHTML='';
-                    displayOptionsPlayer.style.visibility='visible';
+                    displayOptionsChoose.style.visibility='visible';
                     displayOptionsPc.style.visibility='visible';
                     displayPlayer.style.visibility='hidden';
                     displayPc.style.visibility='hidden';
 
                 })
             })
-
-
-
-        }
+            
+            
+            
+       
     }else{
         alert('Enter a value greater than 0.');
     }

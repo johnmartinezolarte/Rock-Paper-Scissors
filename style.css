@@ -84,7 +84,7 @@ body{
     font-weight: 700;
     text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F;
 }
-.options_btnplay{
+.options_choose{
     margin-top: 18px;
     display: flex;
     align-items: center;
